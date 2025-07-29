@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #a5c8ec;
+    }
+
+    .form-container {
+      background-color: #888484;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      margin-right: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom:5px;
+      color: #f8f3f3;
+    }
+
+    .input-box {
+      margin-bottom: 15px;
+    }
+
+    .input-box label {
+      display: inline-block;
+      margin-right: 20px;
+      color: #fcfbfb;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-box input:focus {
+      border-color: #007bff;
+    }
+    .submit-btn {
+      width: 50;
+      padding: 10px;
+      background-color: #9ff37b;
+      color: rgb(40, 38, 38);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #f3f6fa;
+    }
+
+    .success-msg {
+      display: none;
+      text-align: center;
+      color: rgb(20, 21, 20);
+      margin-top: 15px;
+    }
+    .reset{
+        width:50;
+      padding: 10px;
+      background-color: #9ff37b;
+      color: rgb(40, 38, 38);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .reset:hover {
+      background-color: #f3f6fa;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="regForm">
+      <h1>Event Registration</h1>
+
+      <div class="input-box">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+
+      <div class="input-box">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+
+      <div class="input-box">
+        <label for="dob">DOB</label>
+        <input type="Date"required>
+      </div>
+
+      <div class="input-box">
+        <label for="gender">Gender</label>
+        <label>
+            Male<input type="radio" id="male" name="gender" value="Male" style="width:20px;" required>
+        </label>
+        <label>
+            Female<input type="radio" id="female" name="gender" value="Female" style="width:20px;" required>
+        </label>
+      </div>
+
+      <div class="input-box">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="input-box">
+        <label for="phNo">Phone Number</label>
+        <input type="text" id="phNo" name="phNo" pattern="\d{10}" title="Phone number must be 10 digits only" required>
+      </div>
+      <div class="input-box">
+        <label for="add">Address</label>
+        <input type="address"required>
+      </div>
+      <div class="input-box">
+        
+    <p><input type="checkbox" style="width:20px;" required>Accept terms and Conditions</p>
+        
+    </div>
+    <div class="input-box">
+        <label for="branch">Branch</label>
+        <select style="width:75%;padding:10px;border-radius:5px;">
+            <option value="1">CSE</option>
+            <option value="2">ECE</option>
+            <option value="3">CSE-specializations</option>
+            <option value="4">EEE</option>
+            <option value="5">IT</option>
+            <option value="6">CIVIL</option>
+            <option value="7">MECHANICAl</option>
+        </select>
+    </div>
+      <button type="submit" class="submit-btn">Register</button>
+      <button name="Reset" class="reset" onclick="form.reset()">Reset</button>
+      <div class="success-msg" id="successmsg">
+        Thank You For Registering :)
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const successmsg = document.getElementById('successmsg');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+      successmsg.style.display = 'block'; // Show success message
+      form.reset(); // Clear the form fields
+    });
+  </script>
+</body>
+</html>
